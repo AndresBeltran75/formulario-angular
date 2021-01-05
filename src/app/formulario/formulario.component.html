@@ -77,7 +77,7 @@
                             <label><input class="sr-only" type="radio" name="check" value="si" ngModel [class.is-invalid]="check.invalid && check.touched" #check="ngModel" checked required="true"> Si</label>
                         </div>
                         <div>
-                            <label><input class="sr-only" type="radio" name="check" value="no" ngModel [class.is-invalid]="check.invalid && check.touched" #nchecko="ngModel" required="true"> No</label>
+                            <label><input class="sr-only" type="radio" name="checkd" value="no" ngModel [class.is-invalid]="checkd.invalid && checkd.touched" #checkd="ngModel" required="true"> No</label>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     <li>Enfermedad respiratoria crínica(Asma, SAMOS)</li>
                 </ul>
 
-                <small *ngIf="check.invalid && check.touched" class="form-text text-danger">Debe seleccionar una opción</small>
+                <small *ngIf="check.invalid && check.touched || checkd.invalid && checkd.touched" class="form-text text-danger">Debe seleccionar una opción</small>
             </div>
         </div>
 
