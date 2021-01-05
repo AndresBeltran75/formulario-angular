@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "its-punto-uno"
+    }
+  },
+  "defaultProject": "its-punto-uno",
+  "cli": {
+    "analytics": false
+  }
 }
