@@ -1,4 +1,4 @@
-<form>
+<form name="frm" #frm=ngForm (ngSubmit)="validar( frm )">
     <div class="container">
         <h1 class="titulo">Encuesta de Plan Movilidad Segura</h1>
         <h3>Encuesta de Plan Movilidad Segura</h3>
@@ -7,7 +7,22 @@
             Los campos marcados con * son obligatorios
         </p>
 
+        <div>
+            <small id="mensajeNumero" class="form-text text-danger"></small>
+            <br>
+            <small id="mensajeCiudad" class="form-text text-danger"></small>
+            <br>
+            <small id="mensajeLocalidad" class="form-text text-danger"></small>
+            <br>
+            <small id="mensajeBarrio" class="form-text text-danger"></small>
+            <br>
+            <small id="mensajeDireccion" class="form-text text-danger"></small>
+            <br>
+            <small id="mensajeOpcion" class="form-text text-danger"></small>
+        </div>
+
         <div class="row">
+
             <div class="col-6">
                 <label for="funcionario" class="form-label">
                     Funcionario:
@@ -28,19 +43,19 @@
         <div class="row">
             <div class="col-4">
                 <label for="id" class="form-label">Número de identificación: *</label>
-                <input type="number" class="form-control" id="id" required="true" name="id" ngModel [class.is-invalid]="id.invalid && id.touched" #id="ngModel">
+                <input type="number" class="form-control" id="id" name="id" ngModel [class.is-invalid]="id.invalid && id.touched" #id="ngModel" required>
                 <small *ngIf="id.invalid && id.touched" class="form-text text-danger">El campo Número de identificación no puede estar vacio</small>
             </div>
 
             <div class="col-4">
                 <label for="ciudad" class="form-label">Ciudad: *</label>
-                <input type="text" class="form-control" id="ciudad" required="true" name="ciudad" ngModel minlength="3" [class.is-invalid]="ciudad.invalid && ciudad.touched" #ciudad="ngModel">
+                <input type="text" class="form-control" id="ciudad" name="ciudad" ngModel minlength="3" [class.is-invalid]="ciudad.invalid && ciudad.touched" #ciudad="ngModel" required>
                 <small *ngIf="ciudad.invalid && ciudad.touched" class="form-text text-danger">El campo Ciudad no puede tener menos de 3 caracteres</small>
             </div>
 
             <div class="col-4">
                 <label for="localidad" class="form-label">Localidad donde vive: *</label>
-                <input type="text" class="form-control" id="localidad" required="true" name="localidad" ngModel minlength="3" [class.is-invalid]="localidad.invalid && localidad.touched" #localidad="ngModel">
+                <input type="text" class="form-control" id="localidad" name="localidad" ngModel minlength="3" [class.is-invalid]="localidad.invalid && localidad.touched" #localidad="ngModel" required>
                 <small *ngIf="localidad.invalid && localidad.touched" class="form-text text-danger">El campo Localidad donde vive no puede tener menos de 3 caracteres</small>
             </div>
         </div>
@@ -50,13 +65,13 @@
         <div class="row">
             <div class="col-4">
                 <label for="barrio" class="form-label">Barrio: *</label>
-                <input type="text" class="form-control" id="barrio" required="true" name="barrio" ngModel minlength="3" [class.is-invalid]="barrio.invalid && barrio.touched" #barrio="ngModel">
+                <input type="text" class="form-control" id="barrio" name="barrio" ngModel minlength="3" [class.is-invalid]="barrio.invalid && barrio.touched" #barrio="ngModel" required>
                 <small *ngIf="barrio.invalid && barrio.touched" class="form-text text-danger">El campo Barrio no puede tener menos de 3 caracteres</small>
             </div>
 
             <div class="col-4">
                 <label for="direccion" class="form-label">Dirección: *</label>
-                <input type="text" class="form-control" id="direccion" required="true" name="direccion" ngModel minlength="3" [class.is-invalid]="direccion.invalid && direccion.touched" #direccion="ngModel">
+                <input type="text" class="form-control" id="direccion" name="direccion" ngModel minlength="3" [class.is-invalid]="direccion.invalid && direccion.touched" #direccion="ngModel" required>
                 <small *ngIf="direccion.invalid && direccion.touched" class="form-text text-danger">El campo Dirección no puede tener menos de 3 caracteres</small>
             </div>
         </div>
@@ -74,10 +89,10 @@
                 <div data-toggle="buttons">
                     <div>
                         <div>
-                            <label><input class="sr-only" type="radio" name="check" value="si" ngModel [class.is-invalid]="check.invalid && check.touched" #check="ngModel" checked required="true"> Si</label>
+                            <label><input class="sr-only" type="radio" name="check" value="si" ngModel [class.is-invalid]="check.invalid && check.touched" #check="ngModel" checked required> Si</label>
                         </div>
                         <div>
-                            <label><input class="sr-only" type="radio" name="checkd" value="no" ngModel [class.is-invalid]="checkd.invalid && checkd.touched" #checkd="ngModel" required="true"> No</label>
+                            <label><input class="sr-only" type="radio" name="checkd" value="no" ngModel [class.is-invalid]="checkd.invalid && checkd.touched" #checkd="ngModel" required> No</label>
                         </div>
                     </div>
                 </div>
@@ -94,6 +109,10 @@
 
                 <small *ngIf="check.invalid && check.touched || checkd.invalid && checkd.touched" class="form-text text-danger">Debe seleccionar una opción</small>
             </div>
+        </div>
+
+        <div class="container">
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
 
     </div>
